@@ -55,9 +55,9 @@ const randomNumbers = () => {
 const outputNumbers = randomNumbers();
 
 // CONSOLE LOG DI CONTROLLO
-console.log(outputNumbers);
-console.log('Primo numero del mio Array: ' + outputNumbers[0]);
-console.log('Tipo di dato: ' + typeof outputNumbers[0]);
+// console.log(outputNumbers);
+// console.log('Primo numero del mio Array: ' + outputNumbers[0]);
+// console.log('Tipo di dato: ' + typeof outputNumbers[0]);
 
 
 // Raccolto gli Elements HTML su cui stamperò i miei numeri random
@@ -76,7 +76,7 @@ number4.innerText = outputNumbers[3];
 number5.innerText = outputNumbers[4];
 
 // CONSOLE LOG DI CONTROLLO
-console.log('Il primo numero assegnato: ' + number1.innerText)
+// console.log('Il primo numero assegnato: ' + number1.innerText)
 
 
 // Dichiaro gli elementi HTML di cui andrò a modificare la visibilità
@@ -95,7 +95,7 @@ const hideNumbers = () => {
 
 
 // Nascondo i numeri e rendo visibili i text input dopo 30 secondi dal caricamento della pagina
-setTimeout(hideNumbers, 2000);
+setTimeout(hideNumbers, 1000);
 
 // A questo punto raccolgo gli elementi HTML relativi agli input
 const input1 = document.getElementById('input1');
@@ -105,12 +105,52 @@ const input4 = document.getElementById('input4');
 const input5 = document.getElementById('input5');
 
 // CONSOLE LOG DI CONTROLLO
-console.log('Valore input1: ' + input1.value);
+console.log('Valore nascosto primo numero: ' + number1.innerText)
+console.log('Valore input1 vuoto: ' + input1.value);
 
 
 
 // L'utente inserisce dei valori
 // -->
 // Verifico che abbia scritto almeno in un input prima di abilitare il bottone "Conferma"
+
+// Dichiaro gli elementi HTML che subiranno modifiche dopo il click del bottone
+const confirmInput = document.getElementById('confirmInput');
+const finalResult = document.getElementById('finalResult');
+
+// CONSOLE LOG DI CONTROLLO
+console.log('Check collegamento bottone: ' + confirmInput.innerText);
+
+
+// Dichiaro un Array che conterrà gli input dell'utente
+userInputs = [];
+
+
+// Aggiungo un EVENTLISTENER al mio bottone
+
+confirmInput.addEventListener('click', () => {
+
+    // Dichiaro la condizione secondo cui ci deve essere almeno un input non vuoto
+    if (input1.value !== '' || input2.value !== '' || input3.value !== '' || input4.value !== '' || input5.value !== '') {
+        
+        // Svuoto l'Array
+        userInputs.splice(0,5);
+
+        // Poi lo riempio con gli input dell'utente
+        userInputs.push(input1.value, input2.value, input3.value, input4.value, input5.value);
+
+        // CONSOLE LOG DI CONTROLLO
+        console.log(userInputs);
+
+        // Disattivo il bottone per non permettere ulteriori tentativi di input
+        confirmInput.disabled = true;
+    }
+
+    // A questo punto comparo i due Array per verificare quanti numeri l'utente ha ricordato
+
+
+    // Mostro il risultato all'utente
+    finalResult.classList.remove('d-none');
+})
 
 
