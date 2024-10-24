@@ -47,16 +47,80 @@
 
 <body>
    
-    <header>
-        header
+    <header class="d-flex justify-content-center my-3">
+        <h1 class="h1">Simon Says</h1>
     </header> 
 
-    <main>
-        main
-    </main>
+    <div class="container">
+        <main>
+            <!-- MAIN CONTAINER -->
+            <div class="bg-primary rounded p-4">
+                <!-- GAME TITLE -->
+                <div class="d-flex-column text-center">
+                    <h2 class="h4 mb-2 text-white">Guarda i numeri e scrivi quelli che ti ricordi!</h2>
+                    <p class="mb-4 text-white">Memorizza questi numeri prima che scompaiano, poi digita tutti quelli che ti ricordi nell'ordine che preferisci.</p>
+                </div>
+
+                <!-- VALUES ROW -->
+                <div class="bg-white p-3 rounded mb-3">
+                    
+                    <!-- RANDOM NUMBERS -->
+                    <div class="row justify-content-evenly">
+                        <div class="col text-center">
+                            <span>randomNumber</span>
+                        </div>
+                        <div class="col text-center">
+                            <span>randomNumber</span>
+                        </div>
+                        <div class="col text-center">
+                            <span>randomNumber</span>
+                        </div>
+                        <div class="col text-center">
+                            <span>randomNumber</span>
+                        </div>
+                        <div class="col text-center">
+                            <span>randomNumber</span>
+                        </div>
+                    </div>
+
+                    <!-- INPUTS -->
+                    <div class="row justify-content-evenly">
+                        <div class="col text-center">
+                            <input id="elementId" type="text" placeholder="Inserisci numero" class="rounded border-0 text-center bg-light" value="">
+                        </div>
+                        <div class="col text-center">
+                            <input id="elementId" type="text" placeholder="Inserisci numero" class="rounded border-0 text-center bg-light" value="">
+                        </div>
+                        <div class="col text-center">
+                            <input id="elementId" type="text" placeholder="Inserisci numero" class="rounded border-0 text-center bg-light" value="">
+                        </div>
+                        <div class="col text-center">
+                            <input id="elementId" type="text" placeholder="Inserisci numero" class="rounded border-0 text-center bg-light" value="">
+                        </div>
+                        <div class="col text-center">
+                            <input id="elementId" type="text" placeholder="Inserisci numero" class="rounded border-0 text-center bg-light" value="">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- BUTTON + OUTPUT -->
+                 <div class="row">
+                    <div class="col-12 text-center">
+                        <button class="btn btn-light">Conferma</button>
+                    </div>
+                 </div>
+                 <div class="row">
+                    <div class="col-12 text-center mt-2">
+                        <span class="text-white">Output</span>
+                    </div>
+                 </div>
+            </div>
+        </main>
+    </div>
+    
 
     <footer>
-        footer
+        
     </footer>
 
 
