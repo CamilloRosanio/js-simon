@@ -27,5 +27,33 @@ Immaginate la logica come fosse uno snack: "Dati 2 array di numeri, indica quali
 
 
 /**********************************************************
-| # ESEGUZIONE
+| # ESECUZIONE
 **********************************************************/
+
+// Genero 5 numeri random da 1 a 100 al caricamento della pagina, quindi immediatamente tramite funzione
+
+const randomNumbers = () => {
+    const max = 100;
+    const min = 1;
+    const numberOfItems = 5;
+
+    //Dichiaro un Array dove raccoglierò i miei numeri random
+    const outputArray = [];
+    let randomNumber;
+
+    for (let i=0; i < numberOfItems; i++) {
+        randomNumber = Math.floor(Math.random() * (max - min + 1)) + min;
+        outputArray.push(randomNumber);
+    }
+
+    return outputArray
+}
+
+// DICHIARO il mio Array ottenuto dalla funzione
+const randomumbers = [randomNumbers()]
+
+// CONSOLE LOG DI CONTROLLO
+console.log(randomNumbers());
+
+
+// 
