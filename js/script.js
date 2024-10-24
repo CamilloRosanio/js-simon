@@ -155,22 +155,46 @@ confirmInput.addEventListener('click', () => {
     let successCount = 0;
 
     // Controllo ciascun numero degli array e verifico se si verifica un match
+    
+
+    // SOLUZIONE 'A MANO' DEPRECATA
+    
+    // for (let i = 0; i < 5; i++) {
+    //     currentInput = userInputs[i];
+
+    //     // CONSOLE LOG DI CONTROLLO
+    //     console.log(currentInput);
+
+    //     if (currentInput == outputNumbers[0]) {
+    //         successCount += 1;
+    //     } else if (currentInput == outputNumbers[1]) {
+    //         successCount += 1;
+    //     } else if(currentInput == outputNumbers[2]) {
+    //         successCount += 1;
+    //     } else if(currentInput == outputNumbers[3]) {
+    //         successCount += 1;
+    //     } else if(currentInput == outputNumbers[4]) {
+    //         successCount += 1;
+    //     }
+    // }
+
+
+    // SOLUZIONE FINALE
     for (let i = 0; i < 5; i++) {
         currentInput = userInputs[i];
 
         // CONSOLE LOG DI CONTROLLO
-        console.log(currentInput);
+        // console.log(currentInput);
 
-        if (currentInput == outputNumbers[0]) {
-            successCount += 1;
-        } else if (currentInput == outputNumbers[1]) {
-            successCount += 1;
-        } else if(currentInput == outputNumbers[2]) {
-            successCount += 1;
-        } else if(currentInput == outputNumbers[3]) {
-            successCount += 1;
-        } else if(currentInput == outputNumbers[4]) {
-            successCount += 1;
+        for (let j = 0; j < 5; j++) {
+            matchedValue = outputNumbers[j];
+            
+            // CONSOLE LOG DI CONTROLLO
+            // console.log(matchedValue);
+
+            if (currentInput == matchedValue) {
+                successCount += 1;
+            }
         }
     }
 
