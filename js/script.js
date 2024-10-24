@@ -79,3 +79,38 @@ number5.innerText = outputNumbers[4];
 console.log('Il primo numero assegnato: ' + number1.innerText)
 
 
+// Dichiaro gli elementi HTML di cui andrò a modificare la visibilità
+const numbersSection = document.getElementById('numbersSection');
+const inputSection = document.getElementById('inputSection');
+
+
+// Dichiaro la funzione che nasconderà i numeri e renderà visibili i text input
+
+const hideNumbers = () => {
+    // Nasconde i numeri
+    numbersSection.classList.add('d-none');
+    // Mostra la sezione input
+    inputSection.classList.remove('d-none');
+}
+
+
+// Nascondo i numeri e rendo visibili i text input dopo 30 secondi dal caricamento della pagina
+setTimeout(hideNumbers, 2000);
+
+// A questo punto raccolgo gli elementi HTML relativi agli input
+const input1 = document.getElementById('input1');
+const input2 = document.getElementById('input2');
+const input3 = document.getElementById('input3');
+const input4 = document.getElementById('input4');
+const input5 = document.getElementById('input5');
+
+// CONSOLE LOG DI CONTROLLO
+console.log('Valore input1: ' + input1.value);
+
+
+
+// L'utente inserisce dei valori
+// -->
+// Verifico che abbia scritto almeno in un input prima di abilitare il bottone "Conferma"
+
+
