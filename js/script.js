@@ -95,7 +95,7 @@ const hideNumbers = () => {
 
 
 // Nascondo i numeri e rendo visibili i text input dopo 30 secondi dal caricamento della pagina
-setTimeout(hideNumbers, 1000);
+setTimeout(hideNumbers, 3000);
 
 // A questo punto raccolgo gli elementi HTML relativi agli input
 const input1 = document.getElementById('input1');
@@ -105,8 +105,7 @@ const input4 = document.getElementById('input4');
 const input5 = document.getElementById('input5');
 
 // CONSOLE LOG DI CONTROLLO
-console.log('Valore nascosto primo numero: ' + number1.innerText)
-console.log('Valore input1 vuoto: ' + input1.value);
+// console.log('Valori nascosti: ' + outputNumbers);
 
 
 
@@ -116,14 +115,13 @@ console.log('Valore input1 vuoto: ' + input1.value);
 
 // Dichiaro gli elementi HTML che subiranno modifiche dopo il click del bottone
 const confirmInput = document.getElementById('confirmInput');
-const finalResult = document.getElementById('finalResult');
 
 // CONSOLE LOG DI CONTROLLO
 console.log('Check collegamento bottone: ' + confirmInput.innerText);
 
-
-// Dichiaro un Array che conterrà gli input dell'utente
-userInputs = [];
+// Dichiaro un Array per raccogliere gli input dell'utente
+const userInputs = [];
+let successCount;
 
 
 // Aggiungo un EVENTLISTENER al mio bottone
@@ -133,24 +131,57 @@ confirmInput.addEventListener('click', () => {
     // Dichiaro la condizione secondo cui ci deve essere almeno un input non vuoto
     if (input1.value !== '' || input2.value !== '' || input3.value !== '' || input4.value !== '' || input5.value !== '') {
         
-        // Svuoto l'Array
+        // Svuoto l'Array se voglio far riprovare l'utente, altrimenti commento questo passaggio
         userInputs.splice(0,5);
 
-        // Poi lo riempio con gli input dell'utente
+        // Riempio l'Array con gli input dell'utente
         userInputs.push(input1.value, input2.value, input3.value, input4.value, input5.value);
 
         // CONSOLE LOG DI CONTROLLO
-        console.log(userInputs);
+        console.log('Input utente: ' + userInputs);
+        console.log('Valori nascosti: ' + outputNumbers);
 
         // Disattivo il bottone per non permettere ulteriori tentativi di input
         confirmInput.disabled = true;
     }
 
-    // A questo punto comparo i due Array per verificare quanti numeri l'utente ha ricordato
+    // CONSOLE LOG DI CONTROLLO
+    // console.log(typeof outputNumbers);
+    // console.log('Primo numero del mio Array: ' + outputNumbers[0] + ' || Tipo di dato: ' + typeof outputNumbers[0]);
+    // console.log(typeof userInputs);
+    // console.log('Primo numero del mio Array: ' + userInputs[0] + ' || Tipo di dato: ' + typeof userInputs[0]);
 
+    // Dichiaro la variabile che rappresenta il conteggio dei numeri ricordati dall'utente
+    let successCount = 0;
+
+    // Controllo ciascun numero degli array e verifico se si verifica un match
+    for (let i = 0; i < 5; i++) {
+        currentInput = userInputs[i];
+
+        // CONSOLE LOG DI CONTROLLO
+        console.log(currentInput);
+
+        if (currentInput == outputNumbers[0]) {
+            successCount += 1;
+        } else if (currentInput == outputNumbers[1]) {
+            successCount += 1;
+        } else if(currentInput == outputNumbers[2]) {
+            successCount += 1;
+        } else if(currentInput == outputNumbers[3]) {
+            successCount += 1;
+        } else if(currentInput == outputNumbers[4]) {
+            successCount += 1;
+        }
+    }
+
+    // CONSOLE LOG DI CONTROLLO
+    console.log('Numeri indovinati: ' + successCount)
 
     // Mostro il risultato all'utente
+    const finalResult = document.getElementById('finalResult');
+
     finalResult.classList.remove('d-none');
+    finalResult.innerText = `Numeri indovinati: ${successCount}`;
 })
 
 
