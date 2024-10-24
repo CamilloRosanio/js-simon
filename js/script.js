@@ -40,20 +40,42 @@ const randomNumbers = () => {
     //Dichiaro un Array dove raccoglierò i miei numeri random
     const outputArray = [];
     let randomNumber;
+    let conversionToString;
 
     for (let i=0; i < numberOfItems; i++) {
         randomNumber = Math.floor(Math.random() * (max - min + 1)) + min;
-        outputArray.push(randomNumber);
+        conversionToString = randomNumber.toString();
+        outputArray.push(conversionToString);
     }
 
     return outputArray
 }
 
 // DICHIARO il mio Array ottenuto dalla funzione
-const randomumbers = [randomNumbers()]
+const outputNumbers = randomNumbers();
 
 // CONSOLE LOG DI CONTROLLO
-console.log(randomNumbers());
+console.log(outputNumbers);
+console.log('Primo numero del mio Array: ' + outputNumbers[0]);
+console.log('Tipo di dato: ' + typeof outputNumbers[0]);
 
 
-// 
+// Raccolto gli Elements HTML su cui stamperò i miei numeri random
+const number1 = document.getElementById('number1');
+const number2 = document.getElementById('number2');
+const number3 = document.getElementById('number3');
+const number4 = document.getElementById('number4');
+const number5 = document.getElementById('number5');
+
+
+// Stampo i miei numeri come INNER TEXT dei miei elementi HTML
+number1.innerText = outputNumbers[0];
+number2.innerText = outputNumbers[1];
+number3.innerText = outputNumbers[2];
+number4.innerText = outputNumbers[3];
+number5.innerText = outputNumbers[4];
+
+// CONSOLE LOG DI CONTROLLO
+console.log('Il primo numero assegnato: ' + number1.innerText)
+
+
