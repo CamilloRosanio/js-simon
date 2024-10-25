@@ -95,7 +95,7 @@ const hideNumbers = () => {
 
 
 // Nascondo i numeri e rendo visibili i text input dopo 30 secondi dal caricamento della pagina
-setTimeout(hideNumbers, 3000);
+setTimeout(hideNumbers, 2000);
 
 // A questo punto raccolgo gli elementi HTML relativi agli input
 const input1 = document.getElementById('input1');
@@ -179,6 +179,9 @@ confirmInput.addEventListener('click', () => {
     // }
 
 
+    // Dichiaro l'Array dove raccoglierà i numeri che matchano
+    const matchingNumbers = [];
+
     // SOLUZIONE FINALE
     for (let i = 0; i < 5; i++) {
         currentInput = userInputs[i];
@@ -194,18 +197,32 @@ confirmInput.addEventListener('click', () => {
 
             if (currentInput == matchedValue) {
                 successCount += 1;
+                matchingNumbers.push(matchedValue);
             }
         }
     }
 
     // CONSOLE LOG DI CONTROLLO
-    console.log('Numeri indovinati: ' + successCount)
+    console.log('Numeri ricordati: ' + successCount)
+    console.log('Numeri con match: ' + matchingNumbers);
 
     // Mostro il risultato all'utente
     const finalResult = document.getElementById('finalResult');
 
+    // SE l'utente non ha indovinato nessun numero, cambio il valore da mostrare tramite la variabile messaggio che dichiaro qui
+    let outputMessage;
+
+    if (successCount > 0) {
+        outputMessage = `Numeri combacianti: ${successCount} \n Ottimo! Hai ricordato i seguenti numeri: ${matchingNumbers.join(', ')}`;
+    } else {
+        outputMessage = `Numeri combacianti: ${successCount} \n Non hai ricordato nessun numero :(`;
+    }
+
+    // CONSOLE LOG DI CONTROLLO
+    console.log(outputMessage);
+
     finalResult.classList.remove('d-none');
-    finalResult.innerText = `Numeri indovinati: ${successCount}`;
+    finalResult.innerText = outputMessage;
 })
 
 
