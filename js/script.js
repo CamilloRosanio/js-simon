@@ -37,6 +37,9 @@ Cambiando quella variabile potrei usarla come moltiplicatore per generare altret
 Al momento la struttura è statica e dipende solo dall'HTML, ma avrei potuto stampare nuovi elementi con JS.
 
 3) Altra funzione potrebbe essere quella di non generare cifre random uguali, e aggiungerlo all'array solo se non è già presente nell'array finale di Output. Questo è ottenibile con un semplice IF !Array.includes(CurrentNumber) allora PUSH.
+
+4) Negli input HTML è possibile dare un maxlenght='' (o anche un minlenght=''), che determina il NUMERO massimo di caratteri inseribili. Questo a prescindere dal tipo di input che sia Number o Text.
+
 */
 
 
@@ -99,7 +102,7 @@ number5.innerText = outputNumbers[4];
 const numbersSection = document.getElementById('numbersSection');
 const inputSection = document.getElementById('inputSection');
 const confirmInput = document.getElementById('confirmInput');
-const anotherTry = document.getElementById('anotherTry');
+const resetAll = document.getElementById('resetAll');
 
 
 // Dichiaro la funzione che nasconderà i numeri e renderà visibili i text input
@@ -244,7 +247,7 @@ confirmInput.addEventListener('click', () => {
     finalResult.innerText = outputMessage;
 
     // Mostra il bottone per riprovare
-    anotherTry.classList.remove('d-none');
+    resetAll.classList.remove('d-none');
 
 })
 
@@ -254,7 +257,7 @@ confirmInput.addEventListener('click', () => {
 
 /* **********************************VERSIONE CON REFRESH */
 
-// anotherTry.addEventListener('click', () => {
+// resetAll.addEventListener('click', () => {
 //     const reloadPage = () => {
 //         window.location.reload();
 //     }
@@ -265,7 +268,7 @@ confirmInput.addEventListener('click', () => {
 
 /* **********************************VERSIONE CON RESET SENZA REFRESH */
 
-anotherTry.addEventListener('click', () => {
+resetAll.addEventListener('click', () => {
     
     // Resetto gli input
     input1.value = '';
@@ -309,7 +312,7 @@ anotherTry.addEventListener('click', () => {
     // Nascondi il testo dei risultati
     finalResult.classList.add('d-none');
     // Nascondo il bottone per riprovare
-    anotherTry.classList.add('d-none');
+    resetAll.classList.add('d-none');
 
     // Richiamo il Timeout
     showTime();
