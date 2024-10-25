@@ -30,12 +30,14 @@ Immaginate la logica come fosse uno snack: "Dati 2 array di numeri, indica quali
 | # ESECUZIONE
 **********************************************************/
 
-// Genero 5 numeri random da 1 a 100 al caricamento della pagina, quindi immediatamente tramite funzione
+// Genero X numeri random da 1 a 100 al caricamento della pagina, quindi immediatamente tramite funzione
+
+// Numero di valori da generare
+const numberOfItems = 5;
 
 const randomNumbers = () => {
     const max = 100;
     const min = 1;
-    const numberOfItems = 5;
 
     //Dichiaro un Array dove raccoglierò i miei numeri random
     const outputArray = [];
@@ -52,7 +54,7 @@ const randomNumbers = () => {
 }
 
 // DICHIARO il mio Array ottenuto dalla funzione
-const outputNumbers = randomNumbers();
+let outputNumbers = randomNumbers();
 
 // CONSOLE LOG DI CONTROLLO
 // console.log(outputNumbers);
@@ -98,8 +100,13 @@ const hideNumbers = () => {
 }
 
 
-// Nascondo i numeri e rendo visibili i text input dopo 30 secondi dal caricamento della pagina
-setTimeout(hideNumbers, 2000);
+// Nascondo i numeri e rendo visibili i text input dopo X secondi dal caricamento della pagina
+const showTime = () => {
+    setTimeout(hideNumbers, 2000);
+}
+
+// Lancio il Timeout
+showTime();
 
 // A questo punto raccolgo gli elementi HTML relativi agli input
 const input1 = document.getElementById('input1');
@@ -112,10 +119,7 @@ const input5 = document.getElementById('input5');
 // console.log('Valori nascosti: ' + outputNumbers);
 
 
-
 // L'utente inserisce dei valori
-// -->
-// Verifico che abbia scritto almeno in un input prima di abilitare il bottone "Conferma"
 
 // CONSOLE LOG DI CONTROLLO
 console.log('Check collegamento bottone: ' + confirmInput.innerText);
@@ -231,14 +235,64 @@ confirmInput.addEventListener('click', () => {
 })
 
 
-// Aggiungo un EventListener che ricarichi la pagina al click del bottone "Riprova"
+// Aggiungo un EventListener che permetta di resettare il gioco
+
+
+/* **********************************VERSIONE CON REFRESH */
+
+// anotherTry.addEventListener('click', () => {
+//     const reloadPage = () => {
+//         window.location.reload();
+//     }
+
+//     reloadPage(); 
+// })
+
+
+/* **********************************VERSIONE CON RESET SENZA REFRESH */
 
 anotherTry.addEventListener('click', () => {
-    const reloadPage = () => {
-        window.location.reload();
-    }
+    
+    // Resetto gli input
+    input1.value = '';
+    input2.value = '';
+    input3.value = '';
+    input4.value = '';
+    input5.value = '';
 
-    reloadPage(); 
+    // Resetto l'inner text dei numeri
+    number1.innerText = '';
+    number2.innerText = '';
+    number3.innerText = '';
+    number4.innerText = '';
+    number5.innerText = '';
+
+    // Riattivo il bottone di Conferma
+    confirmInput.disabled = false;
+
+    // Rigenero i numeri
+    outputNumbers = randomNumbers();
+
+    // CONSOLE LOG DI CONTROLLO
+    console.log('Nuovi numeri casuali: ' + outputNumbers);
+
+    // Stampo i miei numeri come INNER TEXT dei miei elementi HTML
+    number1.innerText = outputNumbers[0];
+    number2.innerText = outputNumbers[1];
+    number3.innerText = outputNumbers[2];
+    number4.innerText = outputNumbers[3];
+    number5.innerText = outputNumbers[4];
+
+
+    // Ripristino la visibilità originaria degli elementi
+
+    // Mostro i numeri
+    numbersSection.classList.remove('d-none');
+    // Nascondi la sezione input
+    inputSection.classList.add('d-none');
+    // Nascondi il bottone di conferma;
+    confirmInput.classList.add('d-none');
+
+    // Richiamo il Timeout
+    showTime();
 })
-
-
