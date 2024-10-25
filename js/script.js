@@ -30,7 +30,7 @@ Immaginate la logica come fosse uno snack: "Dati 2 array di numeri, indica quali
 
 /* CORREZIONE
 1) Avrei potuto usare un selettore avanzato per recuperare tutti i Numeri e gli Input (aventi un id con radice uguale o un valore custom data con radice uguale).
-Esempio aggiungendo data-(*NOME CUSTOM CARATTERISTICA*)='(*NOME CUSTOM*). Prendendo più oggetti insieme viene generato automaticamente un Array.
+Esempio aggiungendo document.querySelectorAlldata-('[*NOME CUSTOM CARATTERISTICA*='*NOME CUSTOM*]'). Prendendo più oggetti insieme viene generato automaticamente un Array di NODI, una nodeList.
 
 2) Potrei rendere il tutto dinamico tramite il valore 'numberOfItems', cioè quanti numeri da indovinare.
 Cambiando quella variabile potrei usarla come moltiplicatore per generare altrettanti elementi HTML in modo dinamico.
