@@ -40,6 +40,8 @@ Al momento la struttura è statica e dipende solo dall'HTML, ma avrei potuto sta
 
 4) Negli input HTML è possibile dare un maxlenght='' (o anche un minlenght=''), che determina il NUMERO massimo di caratteri inseribili. Questo a prescindere dal tipo di input che sia Number o Text.
 
+5) Bisogna controllare anche che l'utente non ricordi ad esempio un numero, ma lo riscriva X volte, aumentando il punteggio finale.
+Questo va fatto evitando il push dei numeri indovinati se sono già presenti nell'Array dei numeri matchati.
 */
 
 
