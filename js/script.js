@@ -306,6 +306,10 @@ anotherTry.addEventListener('click', () => {
     inputSection.classList.add('d-none');
     // Nascondi il bottone di conferma;
     confirmInput.classList.add('d-none');
+    // Nascondi il testo dei risultati
+    finalResult.classList.add('d-none');
+    // Nascondo il bottone per riprovare
+    anotherTry.classList.add('d-none');
 
     // Richiamo il Timeout
     showTime();
