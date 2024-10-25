@@ -82,6 +82,8 @@ number5.innerText = outputNumbers[4];
 // Dichiaro gli elementi HTML di cui andrò a modificare la visibilità
 const numbersSection = document.getElementById('numbersSection');
 const inputSection = document.getElementById('inputSection');
+const confirmInput = document.getElementById('confirmInput');
+const anotherTry = document.getElementById('anotherTry');
 
 
 // Dichiaro la funzione che nasconderà i numeri e renderà visibili i text input
@@ -91,6 +93,8 @@ const hideNumbers = () => {
     numbersSection.classList.add('d-none');
     // Mostra la sezione input
     inputSection.classList.remove('d-none');
+    // Mostra il bottone di conferma;
+    confirmInput.classList.remove('d-none');
 }
 
 
@@ -112,9 +116,6 @@ const input5 = document.getElementById('input5');
 // L'utente inserisce dei valori
 // -->
 // Verifico che abbia scritto almeno in un input prima di abilitare il bottone "Conferma"
-
-// Dichiaro gli elementi HTML che subiranno modifiche dopo il click del bottone
-const confirmInput = document.getElementById('confirmInput');
 
 // CONSOLE LOG DI CONTROLLO
 console.log('Check collegamento bottone: ' + confirmInput.innerText);
@@ -223,6 +224,21 @@ confirmInput.addEventListener('click', () => {
 
     finalResult.classList.remove('d-none');
     finalResult.innerText = outputMessage;
+
+    // Mostra il bottone per riprovare
+    anotherTry.classList.remove('d-none');
+
+})
+
+
+// Aggiungo un EventListener che ricarichi la pagina al click del bottone "Riprova"
+
+anotherTry.addEventListener('click', () => {
+    const reloadPage = () => {
+        window.location.reload();
+    }
+
+    reloadPage(); 
 })
 
 
