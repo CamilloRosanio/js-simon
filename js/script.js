@@ -24,6 +24,20 @@ Immaginate la logica come fosse uno snack: "Dati 2 array di numeri, indica quali
 */
 
 
+/**********************************************************
+| # CORREZIONE
+**********************************************************/
+
+/* CORREZIONE
+1) Avrei potuto usare un selettore avanzato per recuperare tutti i Numeri e gli Input (aventi un id con radice uguale o un valore custom data con radice uguale).
+Esempio aggiungendo data-(*NOME CUSTOM CARATTERISTICA*)='(*NOME CUSTOM*). Prendendo più oggetti insieme viene generato automaticamente un Array.
+
+2) Potrei rendere il tutto dinamico tramite il valore 'numberOfItems', cioè quanti numeri da indovinare.
+Cambiando quella variabile potrei usarla come moltiplicatore per generare altrettanti elementi HTML in modo dinamico.
+Al momento la struttura è statica e dipende solo dall'HTML, ma avrei potuto stampare nuovi elementi con JS.
+
+3) Altra funzione potrebbe essere quella di non generare cifre random uguali, e aggiungerlo all'array solo se non è già presente nell'array finale di Output. Questo è ottenibile con un semplice IF !Array.includes(CurrentNumber) allora PUSH.
+*/
 
 
 /**********************************************************
@@ -164,7 +178,7 @@ confirmInput.addEventListener('click', () => {
 
     // SOLUZIONE 'A MANO' DEPRECATA
     
-    // for (let i = 0; i < 5; i++) {
+    // for (let i = 0; i < numberOfItems; i++) {
     //     currentInput = userInputs[i];
 
     //     // CONSOLE LOG DI CONTROLLO
@@ -188,13 +202,13 @@ confirmInput.addEventListener('click', () => {
     const matchingNumbers = [];
 
     // SOLUZIONE FINALE
-    for (let i = 0; i < 5; i++) {
+    for (let i = 0; i < numberOfItems; i++) {
         currentInput = userInputs[i];
 
         // CONSOLE LOG DI CONTROLLO
         // console.log(currentInput);
 
-        for (let j = 0; j < 5; j++) {
+        for (let j = 0; j < numberOfItems; j++) {
             matchedValue = outputNumbers[j];
             
             // CONSOLE LOG DI CONTROLLO
